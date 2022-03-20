@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mindjournal/food.dart';
+import 'package:mindjournal/todo.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'meeting.dart';
 
 void main() => runApp(const MyApp());
 
@@ -30,13 +33,15 @@ class CustomNavigationBarDemo extends StatefulWidget {
 class _CustomNavigationBarDemoState extends State<CustomNavigationBarDemo> {
   int index = 0;
 
+  late CalendarDataSource _dataSource;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.pink[300],
-        title: Text('Flutter Indexed Stack Demo'),
+        backgroundColor: Color.fromARGB(255, 209, 14, 144),
+        title: Text('Indexed Stack Demo'),
       ),
       body: Padding(
         child: Column(
@@ -52,17 +57,14 @@ class _CustomNavigationBarDemoState extends State<CustomNavigationBarDemo> {
       child: IndexedStack(
         index: index,
         children: <Widget>[
+          Calendar(),
           Container(
               child: Center(
                   child: Image.asset(
-            "assets/images/flutter.png",
-          ))),
-          Container(
-              child: Center(
-                  child: Image.asset(
-            "assets/images/powered_by.png",
+            "assets/images/mas.png",
           ))),
           Food(),
+          TODOApp(),
         ],
       ),
     );
@@ -73,9 +75,9 @@ class _CustomNavigationBarDemoState extends State<CustomNavigationBarDemo> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         FlatButton(
-          color: Colors.pink[300],
+          color: Color.fromARGB(255, 219, 10, 10),
           child: Text(
-            'Flutter',
+            'Calendar',
             style: TextStyle(fontSize: 16.0, color: Colors.white),
           ),
           onPressed: () {
@@ -85,9 +87,9 @@ class _CustomNavigationBarDemoState extends State<CustomNavigationBarDemo> {
           },
         ),
         FlatButton(
-          color: Colors.pink[300],
+          color: Color.fromARGB(255, 236, 13, 87),
           child: Text(
-            'Aeologic',
+            'ToDo',
             style: TextStyle(fontSize: 16.0, color: Colors.white),
           ),
           onPressed: () {
@@ -97,14 +99,26 @@ class _CustomNavigationBarDemoState extends State<CustomNavigationBarDemo> {
           },
         ),
         FlatButton(
-          color: Colors.pink[300],
+          color: Color.fromARGB(255, 236, 13, 87),
+          child: Text(
+            'Aeologic',
+            style: TextStyle(fontSize: 16.0, color: Colors.white),
+          ),
+          onPressed: () {
+            setState(() {
+              index = 2;
+            });
+          },
+        ),
+        FlatButton(
+          color: Color.fromARGB(255, 73, 3, 27),
           child: Text(
             'Flutter Devs',
             style: TextStyle(fontSize: 16.0, color: Colors.white),
           ),
           onPressed: () {
             setState(() {
-              index = 2;
+              index = 3;
             });
           },
         ),

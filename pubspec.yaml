@@ -41,6 +41,8 @@ dependencies:
   percent_indicator: ^4.0.0
   google_fonts: ^2.3.1
   provider: ^6.0.2
+  syncfusion_flutter_calendar: ^19.4.56
+  table_calendar: ^3.0.4
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +65,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+  
+    - assets/images/mas.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
